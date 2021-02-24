@@ -6,8 +6,13 @@ function ListadoNombres() {
   const [nombre, setNombre] = useState('')
   const [listadoNombres, setListadoNombres] = useState([])
 
-  const addNombre = () => {
-
+  const addNombre = (event) => {
+    event.preventDefault()
+    const nuevoNombre = {
+      id: uniqid(),
+      nombreUsuario: nombre
+    }
+    setListadoNombres([...listadoNombres, nuevoNombre])
   }
 
   return (
@@ -18,7 +23,7 @@ function ListadoNombres() {
       </div>
       <div className="col">
         <h2>Formulario para añadir nombres</h2>
-        <form className="form-group">
+        <form onSubmit={(event) => addNombre(event)} className="form-group">
           <input 
           onChange= {(event) =>{setNombre(event.target.value)}} 
           type="text" 
