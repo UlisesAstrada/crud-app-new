@@ -13,6 +13,7 @@ function ListadoNombres() {
       nombreUsuario: nombre
     }
     setListadoNombres([...listadoNombres, nuevoNombre])
+    setNombre("")
   }
 
   return (
